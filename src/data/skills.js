@@ -45,7 +45,7 @@ export const SKILL_GROUPS = [
       { name: 'Vite', level: 'work', note: 'React 프로젝트 셋업' },
       { name: 'Turborepo · pnpm', level: 'work', note: '모노레포 멀티 앱' },
       { name: 'Git', level: 'tool', note: '브랜치 전략 · 멀티 remote' },
-      { name: 'Figma', level: 'work', note: 'UI 디자인 · Figma MCP 연동' },
+      { name: 'Figma', level: 'work', note: 'UI 시안 디자인 · Figma MCP 연동' },
       { name: 'Vercel', level: 'tool', note: '정적 사이트 배포' },
       { name: 'AWS CodeCommit', level: 'tool', note: '팀 저장소' },
     ],

@@ -48,9 +48,10 @@ export const PROJECTS = [
     accent: '#00a86b',
     thumbnail: null,
     summary:
-      'UI 디자인부터 프론트엔드 개발까지 직접 맡은 외주 프로젝트. 고객·여행사·관리자 세 개의 앱과 공용 패키지(ui, tailwind-config, types, api-client)를 Turborepo 모노레포로 운영. 현재 서비스 오픈 후 안정화 단계입니다.',
+      '메인 화면 디자인부터 프론트엔드 개발까지 직접 맡은 외주 프로젝트. 고객·여행사·관리자 세 개의 앱과 공용 패키지(ui, tailwind-config, types, api-client)를 Turborepo 모노레포로 운영. 현재 서비스 오픈 후 안정화 단계입니다.',
     highlights: [
-      '고객·여행사·관리자 3개 앱의 UI 디자인을 직접 설계하고, 디자인 그대로 컴포넌트로 구현',
+      '메인 화면 시안을 직접 디자인한 뒤, 개발하며 반복되는 UI를 컴포넌트로 추출해 디자인 시스템으로 정립',
+      '정립한 디자인 시스템(토큰·공용 ui 패키지)으로 나머지 화면과 3개 앱의 UI를 일관되게 구성',
       'apps/customer · agency · admin 3개 앱이 공용 ui 패키지를 공유하는 모노레포 구조',
       '공용 Button 컴포넌트를 props(href, fullWidth, className)로 확장해 재사용',
       '“작은 단일 UI는 네이티브 요소로” 같은 컴포넌트 사용 기준을 팀 컨벤션으로 정리',
