@@ -3,6 +3,8 @@
  * 화면(JSX)과 내용(데이터)을 분리하면, 프로젝트를 추가할 때 컴포넌트는 건드리지 않고
  * 이 배열에 객체 하나만 추가하면 된다.
  *
+ * type : 프로젝트 성격 — '외주' | '사내' (카드·모달에 배지로 표시)
+ *
  * TODO 표시는 직접 채워야 하는 정보입니다 (기간, 기여도, 링크, 썸네일).
  * 썸네일: public/images/projects/{id}.webp 에 넣고 thumbnail 경로를 지정하세요.
  *
@@ -16,6 +18,7 @@ export const PROJECTS = [
     id: 'patchat',
     title: 'Patchat',
     subtitle: '특허 검색 AI 채팅 서비스',
+    type: '사내',
     period: '2026', // TODO: 2026.06 – 2026.0X
     role: 'UI 설계 · 프론트엔드 개발', // TODO: 기여도
     tags: ['React'],
@@ -23,7 +26,7 @@ export const PROJECTS = [
     accent: '#3d5afe',
     thumbnail: null,
     summary:
-      'AI와 대화하며 특허를 검색하고, 결과를 차트·분류 트리·갤러리 패널로 탐색하는 웹 앱. 처음부터 설계한 첫 React 프로젝트입니다.',
+      'AI와 대화하며 특허를 검색하고, 결과를 차트·분류 트리·갤러리 패널로 탐색하는 웹 앱. 이전 회사에서 진행한 서비스를 React로 처음부터 설계·구현한 프로젝트입니다.',
     highlights: [
       'features/ · components/common/ · layouts/ 로 나눈 기능 단위 폴더 구조',
       'Button·Input·Card·Tab·Popup 등 공통 컴포넌트 라이브러리와 /components-guide 페이지 구축',
@@ -37,6 +40,7 @@ export const PROJECTS = [
     id: 'chinguya',
     title: '친구야',
     subtitle: '여행 예약 서비스 (고객·여행사·관리자)', // TODO: 서비스 설명 확인
+    type: '외주',
     period: '2026', // TODO
     role: '프론트엔드 개발', // TODO
     tags: ['Next.js'],
@@ -62,6 +66,7 @@ export const PROJECTS = [
     id: 'yamaguchi',
     title: 'Yamaguchi 1Day Bus',
     subtitle: '야마구치 1일 버스투어 예약 사이트',
+    type: '외주',
     period: '2026', // TODO
     role: '퍼블리싱 · 프론트엔드', // TODO
     tags: ['React', 'Publishing'],

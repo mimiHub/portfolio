@@ -46,7 +46,10 @@ export default function ProjectCard({ project, index, onOpen }) {
 
       <div className={styles.body}>
         <div className={styles.meta}>
-          <span className="mono">{String(index + 1).padStart(2, '0')}</span>
+          <span className={styles.metaLeft}>
+            <span className="mono">{String(index + 1).padStart(2, '0')}</span>
+            {project.type && <span className={styles.type}>{project.type}</span>}
+          </span>
           <span className="mono">{project.period}</span>
         </div>
 

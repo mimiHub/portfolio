@@ -58,7 +58,7 @@ export default function ProjectModal({ project: p, open, onClose }) {
             {/* 헤더: 왼쪽 = 제목 묶음 / 오른쪽 = 링크 버튼 (space-between) */}
             <div className={styles.head}>
               <div className={styles.headText}>
-                <p className={`mono ${styles.period}`}>{p.period} · {p.role}</p>
+                <p className={`mono ${styles.period}`}>{[p.type && `${p.type} 프로젝트`, p.period, p.role].filter(Boolean).join(' · ')}</p>
                 <h3 id="project-modal-title" className={styles.title}>{p.title}</h3>
                 <p className={styles.subtitle}>{p.subtitle}</p>
               </div>

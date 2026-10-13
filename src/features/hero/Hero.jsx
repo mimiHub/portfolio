@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { PROFILE } from '@/data/profile';
 import { SKILL_GROUPS } from '@/data/skills';
-import { PROJECTS } from '@/data/projects';
 import SplitText from './SplitText';
 import Marquee from './Marquee';
 import styles from './Hero.module.css';
@@ -52,9 +51,10 @@ export default function Hero() {
               <dt className="mono">Experience</dt>
               <dd>{PROFILE.careerYears}<small>yrs</small></dd>
             </div>
+            {/* 개수(03) 대신 '무엇으로 일하는지' — 선별한 작업물 수가 경력 전체로 오해되지 않게 */}
             <div>
-              <dt className="mono">Projects</dt>
-              <dd>{String(PROJECTS.length).padStart(2, '0')}</dd>
+              <dt className="mono">Focus</dt>
+              <dd className={styles.ddText}>React<br />Next.js</dd>
             </div>
           </dl>
         </div>

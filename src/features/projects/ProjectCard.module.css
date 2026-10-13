@@ -40,6 +40,17 @@
   margin-bottom: 12px;
 }
 
+.metaLeft { display: inline-flex; align-items: center; gap: 10px; }
+.type {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--color-text-inverse);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 .title { font-size: var(--fs-h3); letter-spacing: -0.02em; line-height: 1.2; }
 
 /* 버튼의 클릭 영역을 카드 전체로 확장 (stretched link 패턴) */

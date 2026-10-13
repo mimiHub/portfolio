@@ -63,6 +63,7 @@
 .stats { display: flex; gap: 40px; }
 .stats dt { font-size: var(--fs-label); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
 .stats dd { font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
+.stats .ddText { font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.15; letter-spacing: -0.03em; padding-top: 4px; }
 .stats small { font-size: 0.35em; margin-left: 4px; color: var(--color-text-muted); font-weight: 500; }
 
 .scrollCue {

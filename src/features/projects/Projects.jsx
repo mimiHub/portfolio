@@ -31,7 +31,7 @@ export default function Projects() {
           index="02"
           eyebrow="Selected Works"
           title={<>Things I&rsquo;ve <span className="serif">shipped</span></>}
-          desc="카드를 눌러 프로젝트에서 무엇을 고민했고 어떻게 풀었는지 확인하세요."
+          desc="React·Next.js로 작업한 대표 프로젝트입니다. 카드를 눌러 무엇을 고민했고 어떻게 풀었는지 확인하세요."
           inverse
         />
 
