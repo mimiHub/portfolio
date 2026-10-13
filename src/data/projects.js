@@ -42,14 +42,15 @@ export const PROJECTS = [
     subtitle: '여행 예약 서비스 (고객·여행사·관리자)', // TODO: 서비스 설명 확인
     type: '외주',
     period: '2026', // TODO
-    role: '프론트엔드 개발', // TODO
+    role: 'UI 디자인 · 프론트엔드 개발', // TODO: 기여도(%) 확인
     tags: ['Next.js'],
-    stack: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Turborepo', 'pnpm'],
+    stack: ['Figma', 'Next.js 15', 'TypeScript', 'Tailwind CSS', 'Turborepo', 'pnpm'],
     accent: '#00a86b',
     thumbnail: null,
     summary:
-      '고객·여행사·관리자 세 개의 앱과 공용 패키지(ui, tailwind-config, types, api-client)를 Turborepo 모노레포로 운영. 현재 서비스 오픈 후 안정화 단계입니다.',
+      'UI 디자인부터 프론트엔드 개발까지 직접 맡은 외주 프로젝트. 고객·여행사·관리자 세 개의 앱과 공용 패키지(ui, tailwind-config, types, api-client)를 Turborepo 모노레포로 운영. 현재 서비스 오픈 후 안정화 단계입니다.',
     highlights: [
+      '고객·여행사·관리자 3개 앱의 UI 디자인을 직접 설계하고, 디자인 그대로 컴포넌트로 구현',
       'apps/customer · agency · admin 3개 앱이 공용 ui 패키지를 공유하는 모노레포 구조',
       '공용 Button 컴포넌트를 props(href, fullWidth, className)로 확장해 재사용',
       '“작은 단일 UI는 네이티브 요소로” 같은 컴포넌트 사용 기준을 팀 컨벤션으로 정리',
