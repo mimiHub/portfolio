@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  min-height: 100svh; /* svh: 모바일 주소창 높이를 뺀 실제 보이는 높이 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  --mx: 70%;
+  --my: 30%;
+}
+
+/* 마우스 위치(--mx, --my)를 중심으로 하는 부드러운 빛 */
+.spotlight {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(520px circle at var(--mx) var(--my), color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%),
+    radial-gradient(var(--ink-300) 1px, transparent 1px) 0 0 / 24px 24px;
+  transition: background-position var(--dur-fast);
+}
+
+.inner {
+  position: relative;
+  padding-top: calc(var(--header-h) + 64px);
+  padding-bottom: 72px;
+}
+
+.kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-sub);
+  margin-bottom: 28px;
+  animation: fadeIn var(--dur-slow) var(--ease-out) both;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 0 var(--color-accent);
+  animation: pulse 2s infinite;
+}
+
+.title {
+  font-size: var(--fs-display);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+.line { display: block; }
+.accentWord { color: var(--color-accent); font-weight: 400; letter-spacing: -0.02em; }
+
+.bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  margin-top: clamp(40px, 6vw, 72px);
+  animation: fadeIn var(--dur-slow) var(--ease-out) 900ms both;
+}
+.intro { max-width: 520px; font-size: 1.0625rem; color: var(--color-text-sub); }
+
+.stats { display: flex; gap: 40px; }
+.stats dt { font-size: var(--fs-label); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.stats dd { font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
+.stats small { font-size: 0.35em; margin-left: 4px; color: var(--color-text-muted); font-weight: 500; }
+
+.scrollCue {
+  position: absolute; right: var(--gutter); top: calc(var(--header-h) + 64px);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  font-size: var(--fs-label); color: var(--color-text-muted);
+  writing-mode: vertical-rl;
+}
+.cueLine { position: relative; width: 1px; height: 72px; background: var(--color-line); overflow: hidden; }
+.cueLine::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--color-text);
+  animation: drip 1.8s var(--ease-in-out) infinite;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } }
+@keyframes pulse {
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@keyframes drip {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@media (max-width: 1023px) {
+  .bottom { grid-template-columns: 1fr; gap: 32px; }
+  .scrollCue { display: none; }
+}

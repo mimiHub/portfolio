@@ -1,0 +1,55 @@
+.contact {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  border-top: 1px solid var(--ink-700);
+}
+
+.mailRow { border-block: 1px solid var(--ink-700); }
+.mail {
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding-block: clamp(24px, 4vw, 48px);
+  font-size: clamp(1.5rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  overflow: hidden;
+}
+.mailText { position: relative; overflow-wrap: anywhere; }
+
+/* 밑줄이 왼쪽에서 오른쪽으로 그려지는 hover — scaleX 사용 */
+.mailText::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: -0.08em;
+  height: 0.06em;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.mail:hover .mailText::after { transform: scaleX(1); transform-origin: left; }
+
+.mailArrow {
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  width: 1.4em; height: 1.4em;
+  border-radius: 50%;
+  border: 1px solid var(--ink-600);
+  font-size: 0.6em;
+  transition: background var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), border-color var(--dur-base);
+}
+.mail:hover .mailArrow { background: var(--color-accent); border-color: var(--color-accent); transform: rotate(45deg); }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.copy, .ghost {
+  display: inline-flex; align-items: center;
+  height: 48px; padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.copy { background: var(--color-text-inverse); color: var(--color-text); min-width: 160px; justify-content: center; }
+.copy:hover { background: var(--color-accent); color: #fff; }
+.ghost { border: 1px solid var(--ink-600); }
+.ghost:hover { border-color: var(--color-text-inverse); }

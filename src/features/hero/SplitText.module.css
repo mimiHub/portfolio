@@ -1,0 +1,15 @@
+.wrap { display: inline-block; white-space: nowrap; }
+
+/* mask: overflow hidden 상자 → 그 안에서 글자가 아래에서 위로 '밀려 올라오는' 효과 */
+.mask { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.08em; }
+
+.char {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: rise var(--dur-slow) var(--ease-out) forwards;
+  animation-delay: var(--d);
+}
+
+@keyframes rise {
+  to { transform: translateY(0); }
+}

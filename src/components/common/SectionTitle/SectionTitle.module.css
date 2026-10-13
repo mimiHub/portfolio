@@ -1,0 +1,30 @@
+.head { margin-bottom: clamp(48px, 7vw, 88px); }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+.bar { width: 40px; height: 1px; background: currentColor; }
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+.title :global(.serif) { font-weight: 400; letter-spacing: -0.01em; }
+
+.desc {
+  margin-top: 20px;
+  max-width: 560px;
+  color: var(--color-text-sub);
+}
+
+.inverse .eyebrow { color: var(--ink-400); }
+.inverse .desc { color: var(--ink-300); }

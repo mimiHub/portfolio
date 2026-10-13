@@ -1,0 +1,13 @@
+.footer {
+  background: var(--color-bg-inverse);
+  color: var(--ink-400);
+  font-size: var(--fs-label);
+  border-top: 1px solid var(--ink-700);
+}
+.inner {
+  display: flex; flex-wrap: wrap; gap: 12px 24px;
+  justify-content: space-between; align-items: center;
+  padding-block: 28px;
+}
+.top { color: var(--color-text-inverse); transition: color var(--dur-fast); }
+.top:hover { color: var(--color-accent); }

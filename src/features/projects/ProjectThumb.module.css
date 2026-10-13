@@ -1,0 +1,44 @@
+.img, .fallback { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+
+.fallback {
+  display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--accent) 60%, white), transparent 55%),
+    var(--accent);
+  padding: 8% 10% 0;
+  align-items: end;
+}
+
+.window {
+  width: 100%;
+  height: 88%;
+  background: #fffdf8;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--ink-200); }
+.bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-300); }
+
+.screen { padding: 8% 8%; display: flex; flex-direction: column; gap: 10px; }
+.word {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  line-height: 1;
+}
+.lineA, .lineB { display: block; height: 8px; border-radius: 4px; background: var(--ink-200); }
+.lineA { width: 70%; }
+.lineB { width: 45%; }
+
+/* 모달 배너: 비율 대신 고정 높이 — 화면이 넓어져도 배너가 내용 영역을 잡아먹지 않게 */
+.large {
+  aspect-ratio: auto;
+  height: clamp(140px, 22vh, 200px);
+  padding: 28px 10% 0; /* %padding 은 '너비' 기준이라 낮은 배너에선 px로 고정 */
+}
+.large .window { height: 100%; }
+.large .screen { padding: 20px 6%; }
+.large .word { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }

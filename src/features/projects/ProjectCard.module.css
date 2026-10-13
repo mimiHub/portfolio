@@ -1,0 +1,63 @@
+.card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 50%;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base);
+  will-change: transform;
+}
+
+/* 마우스 위치에 따라 움직이는 하이라이트 */
+.card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(400px circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--dur-base);
+  pointer-events: none;
+}
+.card:hover { border-color: var(--accent); }
+.card:hover::after { opacity: 1; }
+
+.media { overflow: hidden; }
+.card:hover .media > * > div { transform: translateY(-6px); }
+
+.body { flex: 1; display: flex; flex-direction: column; padding: 24px 28px 28px; }
+
+.meta {
+  display: flex; justify-content: space-between;
+  font-size: var(--fs-label);
+  color: var(--ink-500);
+  margin-bottom: 12px;
+}
+
+.title { font-size: var(--fs-h3); letter-spacing: -0.02em; line-height: 1.2; }
+
+/* 버튼의 클릭 영역을 카드 전체로 확장 (stretched link 패턴) */
+.trigger { text-align: left; }
+.trigger::before { content: ''; position: absolute; inset: 0; z-index: 1; }
+.trigger:focus-visible { outline: none; }
+.card:has(.trigger:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+
+.subtitle { margin-top: 6px; font-size: var(--fs-small); color: var(--ink-400); }
+
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 24px; }
+.stack :global(span) { border-color: var(--ink-700); color: var(--ink-300); }
+
+.more {
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--fs-small); font-weight: 600;
+  color: var(--color-text-inverse);
+}
+.arrow { display: inline-block; transition: transform var(--dur-base) var(--ease-out); }
+.card:hover .arrow { transform: translateX(6px); color: var(--accent); }

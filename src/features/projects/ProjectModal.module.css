@@ -1,0 +1,121 @@
+.dialog {
+  margin: auto;
+  width: min(880px, calc(100% - 32px));
+  max-height: calc(100svh - 48px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  overflow: hidden; /* 바깥(dialog)은 스크롤하지 않음 → 스크롤은 .content 에서만 */
+}
+/* display:flex 는 [open] 일 때만! 브라우저 기본 'dialog:not([open]) { display:none }' 보다
+   작성자 CSS가 우선하므로, .dialog 에 바로 주면 닫힌 상태에서도 화면에 보여버림 */
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  animation: pop var(--dur-base) var(--ease-out);
+}
+.dialog::backdrop {
+  background: rgba(22, 20, 15, 0.6);
+  backdrop-filter: blur(6px);
+  animation: fade var(--dur-base) var(--ease-out);
+}
+
+/* panel 도 세로 flex: [배너(고정) / 내용(남는 높이 + 스크롤)] */
+.panel {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.media { flex-shrink: 0; } /* 배너는 줄어들지 않고 항상 위에 고정 */
+
+.close {
+  position: absolute; top: 16px; right: 16px;
+  z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--color-bg-inverse); color: var(--color-text-inverse);
+  font-size: 1.5rem; line-height: 1;
+  transition: transform var(--dur-base) var(--ease-out), background var(--dur-fast);
+}
+.close:hover { transform: rotate(90deg); background: var(--color-accent); }
+
+.content {
+  flex: 1;
+  min-height: 0; /* 핵심! flex 자식은 기본 min-height:auto 라 내용보다 작아지지 않음 → 0으로 풀어야 스크롤 발생 */
+  overflow-y: auto;
+  overscroll-behavior: contain; /* 끝까지 스크롤해도 뒤 페이지가 따라 스크롤되지 않게 */
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.period { font-size: var(--fs-label); color: var(--color-text-muted); }
+.title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; margin-top: 8px; }
+.subtitle { color: var(--color-text-sub); margin-top: 4px; }
+.summary {
+  margin-top: 24px; padding-left: 16px;
+  border-left: 3px solid var(--accent);
+  font-size: 1.0625rem;
+}
+
+.label {
+  margin: 36px 0 14px;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.highlights { counter-reset: hl; display: grid; gap: 12px; }
+.highlights li {
+  counter-increment: hl;
+  display: grid; grid-template-columns: 32px 1fr; gap: 8px;
+}
+.highlights li::before {
+  content: counter(hl, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--accent);
+  padding-top: 4px;
+}
+
+.stack { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.note {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--ink-200);
+  font-size: var(--fs-small);
+  color: var(--color-text-sub);
+}
+
+/* ---------- Head: 제목 ↔ 링크 양끝 정렬 ---------- */
+.head {
+  display: flex;
+  flex-wrap: wrap;               /* 공간이 모자라면 버튼이 제목 아래로 내려감 */
+  justify-content: space-between;
+  align-items: flex-end;         /* 버튼을 제목 묶음의 '아랫선'에 맞춤 */
+  gap: 20px 24px;
+}
+.headText { min-width: 0; }      /* 긴 제목이 flex 안에서 넘치지 않게 */
+
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.linkPrimary, .linkGhost {
+  display: inline-flex; align-items: center;
+  height: 44px; padding: 0 20px;
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.linkPrimary { background: var(--color-bg-inverse); color: var(--color-text-inverse); }
+.linkPrimary:hover { background: var(--color-accent); }
+.linkGhost { border: 1px solid var(--color-line); }
+.linkGhost:hover { border-color: var(--color-text); }
+
+@keyframes pop { from { opacity: 0; transform: translateY(24px) scale(0.98); } }
+@keyframes fade { from { opacity: 0; } }

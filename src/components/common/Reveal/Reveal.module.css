@@ -1,0 +1,12 @@
+/* transform/opacity만 애니메이션 → GPU 합성 레이어에서 처리되어 레이아웃 재계산이 없음 */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms),
+    transform var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms);
+}
+.visible {
+  opacity: 1;
+  transform: none;
+}
